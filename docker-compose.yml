@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  proxy:
+    image: nginx
+    ports:
+     - "6080:6080"
+    volumes:
+     - ./docker-res/nginx:/etc/nginx/conf.d
+     - ./app/app:/app
+
+  app_server:
+    image: webdevops/php:7.4-alpine
+    volumes:
+     - ./app/app:/app
