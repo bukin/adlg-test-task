@@ -49,7 +49,7 @@ after('deploy:shared', 'files:test_environment');
 
 desc('Restart PHP-FPM service');
 task('php-fpm:restart', function () {
-    run('sudo systemctl restart php8.0-fpm.service');
+    run('sudo systemctl restart php8.1-fpm.service');
 });
 after('deploy:symlink', 'php-fpm:restart');
 
