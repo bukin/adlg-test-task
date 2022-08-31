@@ -1,0 +1,33 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - 'test'
+
+jobs:
+  deploy-to-server:
+    name: Deploy
+    runs-on: ubuntu-latest
+    container: pipelinecomponents/deployer
+    steps:
+      - name: Install system packages
+        run: apk --no-cache add tzdata unzip
+
+      - name: Clone repository
+        uses: actions/checkout@v2
+
+      - name: Configure SSH
+        env:
+          TEST_SSH_KEY: ${{ secrets.TEST_SSH_PRIVATE_KEY }}
+          TEST_KNOWN_HOSTS: ${{ secrets.TEST_SSH_KNOWN_HOSTS }}
+        run: |
+          mkdir -p $HOME/.ssh/
+
+          echo "$PRODUCTION_SSH_KEY" > $HOME/.ssh/staging.key
+          echo "$PRODUCTION_KNOWN_HOSTS" > $HOME/.ssh/known_hosts
+
+          chmod 600 $HOME/.ssh/staging.key
+
+      - name: Deploy to server
+        run: dep deploy $GITHUB_REF_NAME
