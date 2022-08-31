@@ -24,8 +24,8 @@ jobs:
         run: |
           mkdir -p $HOME/.ssh/
 
-          echo "$PRODUCTION_SSH_KEY" > $HOME/.ssh/staging.key
-          echo "$PRODUCTION_KNOWN_HOSTS" > $HOME/.ssh/known_hosts
+          echo "$TEST_SSH_KEY" > $HOME/.ssh/staging.key
+          echo "$TEST_KNOWN_HOSTS" > $HOME/.ssh/known_hosts
 
           chmod 600 $HOME/.ssh/staging.key
 
