@@ -1,0 +1,9 @@
+dialog.inet.digital:
+  stage: test
+  port: 22
+  user: deploy
+  identityFile: /github/home/.ssh/staging.key
+  forwardAgent: true
+  multiplexing: true
+  deploy_path: /var/www/dialog.inet.digital
+  branch: test

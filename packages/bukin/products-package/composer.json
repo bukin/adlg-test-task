@@ -1,0 +1,39 @@
+{
+  "name": "bukin/products-package",
+  "description": "Package for products",
+  "homepage": "https://github.com/bukin/products-package",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Konstantin Bukin",
+      "email": "bukin@inetstudio.ru"
+    }
+  ],
+  "require": {
+    "inetstudio/admin-panel": "^10.0",
+    "laravel-json-api/laravel": "^2.3",
+    "spatie/laravel-queueable-action": "^2.14"
+  },
+  "require-dev": {
+    "laravel-json-api/testing": "^1.1",
+    "orchestra/testbench": "^7.5.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Bukin\\ProductsPackage\\": "package/src/",
+      "Bukin\\ProductsPackage\\Products\\": "entities/products/src/",
+      "Bukin\\ProductsPackage\\Products\\Tests\\": "entities/products/tests/src",
+      "Bukin\\ProductsPackage\\Vendors\\": "entities/vendors/src/",
+      "Bukin\\ProductsPackage\\Vendors\\Tests\\": "entities/vendors/tests/src"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Bukin\\ProductsPackage\\Infrastructure\\Providers\\ServiceProvider",
+        "Bukin\\ProductsPackage\\Products\\Infrastructure\\Providers\\ServiceProvider",
+        "Bukin\\ProductsPackage\\Vendors\\Infrastructure\\Providers\\ServiceProvider"
+      ]
+    }
+  }
+}

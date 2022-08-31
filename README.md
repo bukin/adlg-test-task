@@ -1,19 +1,27 @@
-# Тестовое задание кандидата
+<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg" alt="logo-laravel"></p>
 
-## Описание окружения
-Подготовлено простейшее окружение. Окружение описано в файле docker-compose.yml. Окружение состоит из nginx proxy контейнера и php 7.4 fpm контейнера. Конфигурационный файл nginx расположен в ./docker-res/nginx/app.conf
+<p><strong>Prepare virtual machine</strong></p>
 
-## Работа с проектом
-Разрешается делать все, что необходимо для решения поставленной задачи.
-Разрешается использовать фреймворки Lumen(предпочтительно), Laravel, Symfony.
-Необходимо форкнуть проект. Выполнять задание в отдельной ветке. По завершении создать pull request в ветку master. БД можно использовать любую, том числе sqlite.
+- cp .env.local .env
+- <strong>[Optional]</strong> cp docker-compose.override.example.yml docker-compose.override.yml
+- docker-compose up -d
+- docker-compose exec php composer install
+- docker-compose exec php php artisan key:generate (For init project or .env / APP_KEY is empty)
+- docker-compose exec php php artisan storage:link
 
-## Задание
-1. Создать справочник производителей vendor:(id, code, name);
-2. Создать справочник товаров product:(id, name, vendor_id);
-3. Создать необходимые миграции с индексами;
-4. Реализовать http-api (REST) методы создания (create), обновления (update) и вывода списка (list) производителей;
-5. Реализовать консольную команду вывода товаров (id, name, vendor.name).
+<p><strong>Prepare DB</strong></p>
 
-## P.S.
-Просьба подходить к выполнению задания так, как вы его выполняли бы на реальном проекте.
+- docker-compose exec php php artisan migrate
+- docker-compose exec php php artisan inetstudio:acl:roles:seed
+- docker-compose exec php php artisan inetstudio:acl:users:admin (admin / password)
+- docker-compose exec php php artisan db:seed --class="\Bukin\ProductsPackage\Products\Domain\Entity\ProductSeeder"
+- docker-compose exec php php artisan db:seed --class="\Bukin\ProductsPackage\Vendors\Domain\Entity\VendorSeeder"
+
+<p><strong>Console Aliases</strong></p>
+
+- alias dcphp="docker-compose exec php php"
+- alias dcphpa="docker-compose exec php php artisan"
+- alias dcphpc="docker-compose exec php composer"
+- alias dcphp_stan="docker-compose exec php ./vendor/bin/phpstan analyse"
+- alias dcphp_exd="docker-compose exec php sh -l -c enable-xdebug"
+- alias dcphp_dxd="docker-compose exec php sh -l -c disable-xdebug"

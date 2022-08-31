@@ -1,0 +1,93 @@
+{
+    "name": "bukin/dialog",
+    "type": "project",
+    "description": "Dialog test app.",
+    "authors": [
+        {
+            "name": "Konstantin Bukin",
+            "email": "bukin@inetstudio.ru"
+        }
+    ],
+    "require": {
+        "php": "^8.1",
+        "doctrine/dbal": "^3.0",
+        "guzzlehttp/guzzle": "^7.2",
+        "inetstudio/admin-panel": "^9.0",
+        "laravel-json-api/laravel": "^2.3",
+        "laravel/framework": "^9.0",
+        "laravel/sanctum": "^2.14",
+        "laravel/tinker": "^2.7",
+        "laravel/ui": "^3.0",
+        "mcaskill/composer-exclude-files": "^2.0",
+        "spatie/laravel-query-builder": "^5.0",
+        "spatie/laravel-queueable-action": "^2.14"
+    },
+    "require-dev": {
+        "barryvdh/laravel-debugbar": "^3.6.6",
+        "barryvdh/laravel-ide-helper": "^2.12",
+        "beyondcode/laravel-dump-server": "^1.8.0",
+        "laravel-json-api/testing": "^1.1",
+        "nunomaduro/collision": "^6.1",
+        "nunomaduro/larastan": "^2.1.4",
+        "orchestra/testbench": "^7.5.0",
+        "spatie/laravel-ignition": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Database\\Factories\\": "database/factories/",
+            "Database\\Seeders\\": "database/seeders/",
+
+            "Bukin\\AdminPanel\\Base\\": "packages/bukin/admin-panel/entities/base/src",
+
+            "Bukin\\ProductsPackage\\": "packages/bukin/products-package/package/src",
+            "Bukin\\ProductsPackage\\Products\\": "packages/bukin/products-package/entities/products/src",
+            "Bukin\\ProductsPackage\\Products\\Tests\\": "packages/bukin/products-package/entities/products/tests/src",
+            "Bukin\\ProductsPackage\\Vendors\\": "packages/bukin/products-package/entities/vendors/src",
+            "Bukin\\ProductsPackage\\Vendors\\Tests\\": "packages/bukin/products-package/entities/vendors/tests/src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        },
+        "files": []
+    },
+    "scripts": {
+        "post-autoload-dump": [
+            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+            "@php artisan package:discover --ansi"
+        ],
+        "post-root-package-install": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ],
+        "post-create-project-cmd": [
+            "@php artisan key:generate --ansi"
+        ]
+    },
+    "extra": {
+        "exclude-from-files": [],
+        "laravel": {
+            "dont-discover": [
+              "inetstudio/acl",
+              "inetstudio/admin-panel",
+              "inetstudio/cache",
+              "inetstudio/meta",
+              "inetstudio/search",
+              "inetstudio/simple-counters",
+              "inetstudio/uploads",
+              "inetstudio/widgets"
+            ]
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "allow-plugins": {
+            "mcaskill/composer-exclude-files": true
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

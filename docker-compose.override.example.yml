@@ -1,0 +1,14 @@
+version: "3.9"
+
+services:
+  nginx:
+    ports:
+      - "80:80"
+
+  php:
+    ports:
+      - "9000:9000"
+
+  mysql:
+    ports:
+      - "3306:3306"
