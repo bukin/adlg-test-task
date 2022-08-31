@@ -183,11 +183,6 @@ return [
         Illuminate\View\ViewServiceProvider::class,
 
         /*
-         * ide helper
-         */
-        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
-
-        /*
          * Package Service Providers...
          */
         InetStudio\ACL\Activations\Providers\BindingsServiceProvider::class,
