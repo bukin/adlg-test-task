@@ -11,7 +11,6 @@ class ServiceProvider extends BaseServiceProvider
     {
         $this->registerConsoleCommands();
         $this->registerPublishes();
-        $this->registerViews();
     }
 
     protected function registerConsoleCommands(): void
@@ -32,10 +31,5 @@ class ServiceProvider extends BaseServiceProvider
         $this->mergeConfigFrom(
             __DIR__.'/../../../config/jsonapi.php', 'jsonapi.servers.api.jsonapi'
         );
-    }
-
-    protected function registerViews(): void
-    {
-        $this->loadViewsFrom(__DIR__.'/../../../resources/views', 'bukin.products-package');
     }
 }
