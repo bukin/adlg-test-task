@@ -10,33 +10,33 @@ class VendorPolicy
 {
     use HandlesAuthorization;
 
-    public function viewAny(?UserModelContract $user)
+    public function viewAny(UserModelContract $user)
     {
-        return true;
+        return $user->hasRole('admin') || $user->hasPermission('vendors-can-view-any');
     }
 
-    public function view(?UserModelContract $user, VendorModelContract $vendor)
+    public function view(UserModelContract $user, VendorModelContract $vendor)
     {
-        return true;
+        return $user->hasRole('admin') || $user->hasPermission('vendors-can-view');
     }
 
-    public function create(?UserModelContract $user)
+    public function create(UserModelContract $user)
     {
-        return true;
+        return $user->hasRole('admin') || $user->hasPermission('vendors-can-create');
     }
 
-    public function update(?UserModelContract $user)
+    public function update(UserModelContract $user)
     {
-        return true;
+        return $user->hasRole('admin') || $user->hasPermission('vendors-can-update');
     }
 
-    public function delete(?UserModelContract $user, VendorModelContract $vendor)
+    public function delete(UserModelContract $user, VendorModelContract $vendor)
     {
-        return true;
+        return $user->hasRole('admin') || $user->hasPermission('vendors-can-delete');
     }
 
-    public function viewProducts(?UserModelContract $user, VendorModelContract $vendor)
+    public function viewProducts(UserModelContract $user, VendorModelContract $vendor)
     {
-        return true;
+        return $user->hasRole('admin') || $user->hasPermission('vendors-can-view-products');
     }
 }

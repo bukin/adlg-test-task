@@ -11,7 +11,7 @@ class StoreRequest extends FormRequest
 {
     public function authorize(): bool
     {
-        return true;
+        return $this->user()->hasRole('admin') || $this->user()->hasPermission('products-can-create');
     }
 
     public function messages(): array

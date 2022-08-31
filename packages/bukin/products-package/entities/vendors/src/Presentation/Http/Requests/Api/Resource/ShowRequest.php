@@ -11,7 +11,7 @@ class ShowRequest extends FormRequest
 {
     public function authorize(): bool
     {
-        return true;
+        return $this->user()->hasRole('admin') || $this->user()->hasPermission('vendors-can-view');
     }
 
     public function messages(): array

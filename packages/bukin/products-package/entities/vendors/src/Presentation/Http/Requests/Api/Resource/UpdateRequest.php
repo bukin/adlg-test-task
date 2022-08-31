@@ -11,7 +11,7 @@ class UpdateRequest extends FormRequest
 {
     public function authorize(): bool
     {
-        return true;
+        return $this->user()->hasRole('admin') || $this->user()->hasPermission('vendors-can-update');
     }
 
     public function messages(): array

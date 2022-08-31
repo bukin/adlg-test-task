@@ -8,7 +8,7 @@ use Bukin\ProductsPackage\Vendors\Presentation\Http\Controllers\Api\ResourceCont
 
 Route::group(
     [
-        'middleware' => ['api'],
+        'middleware' => ['api', 'auth:api'],
     ],
     function () {
         JsonApiRoute::server('api.jsonapi.products-package.v1')
