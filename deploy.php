@@ -47,9 +47,6 @@ task('files:test_environment', function () {
 })->onStage('test');
 after('deploy:shared', 'files:test_environment');
 
-after('deploy:shared', 'copy:assets');
-after('copy:assets', 'copy:release');
-
 desc('Restart PHP-FPM service');
 task('php-fpm:restart', function () {
     run('sudo systemctl restart php8.0-fpm.service');
