@@ -11,7 +11,7 @@ set('keep_releases', 5);
 set('project_alias', 'dialog');
 set('repository', 'git@adlg-test-task:bukin/adlg-test-task.git');
 set('bin/php', function () {
-    return '/usr/bin/php8.0';
+    return '/usr/bin/php8.1';
 });
 
 add('shared_files', []);
