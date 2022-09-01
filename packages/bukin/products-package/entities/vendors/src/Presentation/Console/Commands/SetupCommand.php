@@ -2,8 +2,8 @@
 
 namespace Bukin\ProductsPackage\Vendors\Presentation\Console\Commands;
 
-use InetStudio\AdminPanel\Base\Console\Commands\BaseSetupCommand;
 use Bukin\ProductsPackage\Vendors\Infrastructure\Providers\ServiceProvider;
+use InetStudio\AdminPanel\Base\Console\Commands\BaseSetupCommand;
 
 class SetupCommand extends BaseSetupCommand
 {

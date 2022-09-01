@@ -8,11 +8,11 @@ use Bukin\ProductsPackage\Vendors\Presentation\Http\Controllers\Api\ResourceCont
 
 Route::group(
     [
-        'middleware' => ['api'],
+        'middleware' => ['api', 'auth:sanctum'],
     ],
     function () {
         JsonApiRoute::server('api.jsonapi.products-package.v1')
-            ->prefix('api/bukin/products-package/v1')
+            ->prefix('api/jsonapi/products-package/v1')
             ->withoutMiddleware(SubstituteBindings::class)
             ->resources(function ($server) {
                 $server->resource('vendors', JsonApiController::class)

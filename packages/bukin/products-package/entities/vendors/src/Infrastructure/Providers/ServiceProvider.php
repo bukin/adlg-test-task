@@ -2,12 +2,12 @@
 
 namespace Bukin\ProductsPackage\Vendors\Infrastructure\Providers;
 
-use Illuminate\Support\Facades\Gate;
-use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 use Bukin\ProductsPackage\Vendors\Domain\Entity\VendorModel;
 use Bukin\ProductsPackage\Vendors\Domain\Entity\VendorModelContract;
 use Bukin\ProductsPackage\Vendors\Presentation\Console\Commands\SetupCommand;
 use Bukin\ProductsPackage\Vendors\Presentation\JsonApi\V1\Policies\VendorPolicy;
+use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 
 class ServiceProvider extends BaseServiceProvider
 {

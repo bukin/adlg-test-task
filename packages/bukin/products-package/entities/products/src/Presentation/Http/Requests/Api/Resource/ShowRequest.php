@@ -2,16 +2,16 @@
 
 namespace Bukin\ProductsPackage\Products\Presentation\Http\Requests\Api\Resource;
 
+use Bukin\ProductsPackage\Products\Application\Queries\FetchItemsByQueryData;
 use Illuminate\Foundation\Http\FormRequest;
 use Spatie\DataTransferObject\DataTransferObject;
 use Spatie\DataTransferObject\Exceptions\UnknownProperties;
-use Bukin\ProductsPackage\Products\Application\Queries\FetchItemsByQueryData;
 
 class ShowRequest extends FormRequest
 {
     public function authorize(): bool
     {
-        return true;
+        return $this->user()->hasRole('admin') || $this->user()->hasPermission('products-can-view');
     }
 
     public function messages(): array

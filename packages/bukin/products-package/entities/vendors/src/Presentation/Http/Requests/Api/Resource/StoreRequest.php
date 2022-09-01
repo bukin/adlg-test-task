@@ -2,16 +2,16 @@
 
 namespace Bukin\ProductsPackage\Vendors\Presentation\Http\Requests\Api\Resource;
 
+use Bukin\ProductsPackage\Vendors\Application\Actions\Resource\Store\StoreItemData;
 use Illuminate\Foundation\Http\FormRequest;
 use Spatie\DataTransferObject\DataTransferObject;
-use Bukin\ProductsPackage\Vendors\Application\Actions\Resource\Store\StoreItemData;
 use Spatie\DataTransferObject\Exceptions\UnknownProperties;
 
 class StoreRequest extends FormRequest
 {
     public function authorize(): bool
     {
-        return true;
+        return $this->user()->hasRole('admin') || $this->user()->hasPermission('vendors-can-create');
     }
 
     public function messages(): array

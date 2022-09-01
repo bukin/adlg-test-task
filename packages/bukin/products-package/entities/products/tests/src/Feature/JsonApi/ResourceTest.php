@@ -2,12 +2,11 @@
 
 namespace Bukin\ProductsPackage\Products\Tests\Feature\JsonApi;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Support\Str;
 use Bukin\ProductsPackage\Products\Domain\Entity\ProductModel;
 use Bukin\ProductsPackage\Products\Tests\TestCase;
 use Bukin\ProductsPackage\Vendors\Domain\Entity\VendorModel;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
 use LaravelJsonApi\Testing\MakesJsonApiRequests;
 
 class ResourceTest extends TestCase
@@ -23,6 +22,7 @@ class ResourceTest extends TestCase
         $url = route('api.jsonapi.products-package.v1.products.index');
 
         $response = $this
+            ->actingAs($this->getUserWithRole('admin'))
             ->jsonApi()
             ->expects('products')
             ->get($url);
@@ -36,6 +36,7 @@ class ResourceTest extends TestCase
         $url = route('api.jsonapi.products-package.v1.products.index');
 
         $response = $this
+            ->actingAs($this->getUserWithRole('admin'))
             ->jsonApi()
             ->expects('products')
             ->get($url);
@@ -50,6 +51,7 @@ class ResourceTest extends TestCase
         $url = route('api.jsonapi.products-package.v1.products.index');
 
         $response = $this
+            ->actingAs($this->getUserWithRole('admin'))
             ->jsonApi()
             ->expects('products')
             ->sort('id')
@@ -65,6 +67,7 @@ class ResourceTest extends TestCase
         $url = route('api.jsonapi.products-package.v1.products.index');
 
         $response = $this
+            ->actingAs($this->getUserWithRole('admin'))
             ->jsonApi()
             ->expects('products')
             ->sort('-id')
@@ -80,6 +83,7 @@ class ResourceTest extends TestCase
         $url = route('api.jsonapi.products-package.v1.products.index');
 
         $response = $this
+            ->actingAs($this->getUserWithRole('admin'))
             ->jsonApi()
             ->expects('products')
             ->sort('name')
@@ -95,6 +99,7 @@ class ResourceTest extends TestCase
         $url = route('api.jsonapi.products-package.v1.products.index');
 
         $response = $this
+            ->actingAs($this->getUserWithRole('admin'))
             ->jsonApi()
             ->expects('products')
             ->sort('-name')
@@ -110,6 +115,7 @@ class ResourceTest extends TestCase
         $url = route('api.jsonapi.products-package.v1.products.index');
 
         $response = $this
+            ->actingAs($this->getUserWithRole('admin'))
             ->jsonApi()
             ->expects('products')
             ->sort('createdAt')
@@ -125,6 +131,7 @@ class ResourceTest extends TestCase
         $url = route('api.jsonapi.products-package.v1.products.index');
 
         $response = $this
+            ->actingAs($this->getUserWithRole('admin'))
             ->jsonApi()
             ->expects('products')
             ->sort('-createdAt')
@@ -140,6 +147,7 @@ class ResourceTest extends TestCase
         $url = route('api.jsonapi.products-package.v1.products.index');
 
         $response = $this
+            ->actingAs($this->getUserWithRole('admin'))
             ->jsonApi()
             ->expects('products')
             ->sort('updatedAt')
@@ -155,6 +163,7 @@ class ResourceTest extends TestCase
         $url = route('api.jsonapi.products-package.v1.products.index');
 
         $response = $this
+            ->actingAs($this->getUserWithRole('admin'))
             ->jsonApi()
             ->expects('products')
             ->sort('-updatedAt')
@@ -170,6 +179,7 @@ class ResourceTest extends TestCase
         $url = route('api.jsonapi.products-package.v1.products.index');
 
         $response = $this
+            ->actingAs($this->getUserWithRole('admin'))
             ->jsonApi()
             ->expects('products')
             ->filter(['id' => [$products->first()->id]])
@@ -185,6 +195,7 @@ class ResourceTest extends TestCase
         $url = route('api.jsonapi.products-package.v1.products.index');
 
         $response = $this
+            ->actingAs($this->getUserWithRole('admin'))
             ->jsonApi()
             ->expects('products')
             ->filter(['id' => ['test']])
@@ -203,6 +214,7 @@ class ResourceTest extends TestCase
         $url = route('api.jsonapi.products-package.v1.products.index');
 
         $response = $this
+            ->actingAs($this->getUserWithRole('admin'))
             ->jsonApi()
             ->expects('products')
             ->filter(['vendor' => $vendor->code])
@@ -220,6 +232,7 @@ class ResourceTest extends TestCase
         $url = route('api.jsonapi.products-package.v1.products.index');
 
         $response = $this
+            ->actingAs($this->getUserWithRole('admin'))
             ->jsonApi()
             ->expects('products')
             ->filter(['vendor' => 'test_vendor'])
@@ -244,6 +257,7 @@ class ResourceTest extends TestCase
         $url = route('api.jsonapi.products-package.v1.products.index');
 
         $response = $this
+            ->actingAs($this->getUserWithRole('admin'))
             ->jsonApi()
             ->expects('products')
             ->filter(['suggestion' => 'suggestion_test'])
@@ -259,6 +273,7 @@ class ResourceTest extends TestCase
         $url = route('api.jsonapi.products-package.v1.products.index');
 
         $response = $this
+            ->actingAs($this->getUserWithRole('admin'))
             ->jsonApi()
             ->expects('products')
             ->filter(['suggestion' => 'suggestion_test'])
@@ -273,6 +288,7 @@ class ResourceTest extends TestCase
         $url = route('api.jsonapi.products-package.v1.products.index');
 
         $response = $this
+            ->actingAs($this->getUserWithRole('admin'))
             ->jsonApi()
             ->expects('products')
             ->filter(['test' => 'test'])
@@ -292,6 +308,7 @@ class ResourceTest extends TestCase
         $url = route('api.jsonapi.products-package.v1.products.show', ['product' => $product->getRouteKey()]);
 
         $response = $this
+            ->actingAs($this->getUserWithRole('admin'))
             ->jsonApi()
             ->expects('products')
             ->get($url);
@@ -309,6 +326,7 @@ class ResourceTest extends TestCase
         $url = route('api.jsonapi.products-package.v1.products.show', ['product' => $product->getRouteKey()]);
 
         $response = $this
+            ->actingAs($this->getUserWithRole('admin'))
             ->jsonApi()
             ->expects('products')
             ->includePaths('vendor')
@@ -340,6 +358,7 @@ class ResourceTest extends TestCase
         ];
 
         $response = $this
+            ->actingAs($this->getUserWithRole('admin'))
             ->jsonApi()
             ->expects('products')
             ->get($url);
@@ -355,6 +374,7 @@ class ResourceTest extends TestCase
         $url = route('api.jsonapi.products-package.v1.products.show', ['product' => $product->getRouteKey()]);
 
         $response = $this
+            ->actingAs($this->getUserWithRole('admin'))
             ->jsonApi()
             ->expects('products')
             ->includePaths('invalid_relation')
@@ -383,6 +403,7 @@ class ResourceTest extends TestCase
         ];
 
         $response = $this
+            ->actingAs($this->getUserWithRole('admin'))
             ->jsonApi()
             ->expects('products')
             ->sparseFields('products', ['name'])
@@ -399,6 +420,7 @@ class ResourceTest extends TestCase
         $url = route('api.jsonapi.products-package.v1.products.show', ['product' => $product->getRouteKey()]);
 
         $response = $this
+            ->actingAs($this->getUserWithRole('admin'))
             ->jsonApi()
             ->expects('products')
             ->includePaths('vendor')
@@ -421,6 +443,7 @@ class ResourceTest extends TestCase
         $url = route('api.jsonapi.products-package.v1.products.show', ['product' => $product->getRouteKey()]);
 
         $response = $this
+            ->actingAs($this->getUserWithRole('admin'))
             ->jsonApi()
             ->expects('products')
             ->sparseFields('products', ['test'])
@@ -439,6 +462,7 @@ class ResourceTest extends TestCase
         $url = route('api.jsonapi.products-package.v1.products.show', ['product' => 'test']);
 
         $response = $this
+            ->actingAs($this->getUserWithRole('admin'))
             ->jsonApi()
             ->expects('products')
             ->get($url);
@@ -470,7 +494,9 @@ class ResourceTest extends TestCase
             ],
         ];
 
-        $this->jsonApi()
+        $this
+            ->actingAs($this->getUserWithRole('admin'))
+            ->jsonApi()
             ->expects('products')
             ->withData($data)
             ->includePaths('vendor')
@@ -505,7 +531,9 @@ class ResourceTest extends TestCase
             ],
         ];
 
-        $response = $this->jsonApi()
+        $response = $this
+            ->actingAs($this->getUserWithRole('admin'))
+            ->jsonApi()
             ->expects('products')
             ->withData($data)
             ->post($url);
@@ -545,7 +573,9 @@ class ResourceTest extends TestCase
             ],
         ];
 
-        $response = $this->jsonApi()
+        $response = $this
+            ->actingAs($this->getUserWithRole('admin'))
+            ->jsonApi()
             ->expects('products')
             ->withData($data)
             ->post($url);
@@ -585,7 +615,9 @@ class ResourceTest extends TestCase
             ],
         ];
 
-        $response = $this->jsonApi()
+        $response = $this
+            ->actingAs($this->getUserWithRole('admin'))
+            ->jsonApi()
             ->expects('products')
             ->withData($data)
             ->post($url);
@@ -627,7 +659,9 @@ class ResourceTest extends TestCase
             ],
         ];
 
-        $response = $this->jsonApi()
+        $response = $this
+            ->actingAs($this->getUserWithRole('admin'))
+            ->jsonApi()
             ->expects('products')
             ->withData($data)
             ->post($url);
@@ -669,6 +703,7 @@ class ResourceTest extends TestCase
         ];
 
         $response = $this
+            ->actingAs($this->getUserWithRole('admin'))
             ->jsonApi()
             ->expects('products')
             ->withData($data)
@@ -708,6 +743,7 @@ class ResourceTest extends TestCase
         ];
 
         $response = $this
+            ->actingAs($this->getUserWithRole('admin'))
             ->jsonApi()
             ->expects('products')
             ->withData($data)
@@ -740,6 +776,7 @@ class ResourceTest extends TestCase
         ];
 
         $response = $this
+            ->actingAs($this->getUserWithRole('admin'))
             ->jsonApi()
             ->expects('products')
             ->withData($data)
@@ -755,6 +792,7 @@ class ResourceTest extends TestCase
         $url = route('api.jsonapi.products-package.v1.products.destroy', ['product' => $product->getRouteKey()]);
 
         $response = $this
+            ->actingAs($this->getUserWithRole('admin'))
             ->jsonApi()
             ->delete($url);
 
@@ -771,6 +809,7 @@ class ResourceTest extends TestCase
         $url = route('api.jsonapi.products-package.v1.products.destroy', ['product' => 'test']);
 
         $response = $this
+            ->actingAs($this->getUserWithRole('admin'))
             ->jsonApi()
             ->delete($url);
 

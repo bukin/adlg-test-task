@@ -3,9 +3,9 @@
 namespace Bukin\ProductsPackage\Products\Presentation\Http\Responses\Api\Resource;
 
 use Bukin\AdminPanel\Base\Presentation\Http\Responses\Response as BaseResponse;
-use Illuminate\Http\JsonResponse;
-use Illuminate\Database\Eloquent\Collection;
 use Bukin\ProductsPackage\Products\Presentation\Http\Resources\Api\Resource\Index\ItemsCollection;
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Http\JsonResponse;
 
 class IndexResponse extends BaseResponse
 {

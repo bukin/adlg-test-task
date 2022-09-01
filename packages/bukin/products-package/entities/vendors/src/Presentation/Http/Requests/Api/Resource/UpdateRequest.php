@@ -2,16 +2,16 @@
 
 namespace Bukin\ProductsPackage\Vendors\Presentation\Http\Requests\Api\Resource;
 
+use Bukin\ProductsPackage\Vendors\Application\Actions\Resource\Update\UpdateItemData;
 use Illuminate\Foundation\Http\FormRequest;
 use Spatie\DataTransferObject\DataTransferObject;
-use Bukin\ProductsPackage\Vendors\Application\Actions\Resource\Update\UpdateItemData;
 use Spatie\DataTransferObject\Exceptions\UnknownProperties;
 
 class UpdateRequest extends FormRequest
 {
     public function authorize(): bool
     {
-        return true;
+        return $this->user()->hasRole('admin') || $this->user()->hasPermission('vendors-can-update');
     }
 
     public function messages(): array

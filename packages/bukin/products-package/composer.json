@@ -21,6 +21,7 @@
   "autoload": {
     "psr-4": {
       "Bukin\\ProductsPackage\\": "package/src/",
+      "Bukin\\ProductsPackage\\Tests\\": "package/tests/src",
       "Bukin\\ProductsPackage\\Products\\": "entities/products/src/",
       "Bukin\\ProductsPackage\\Products\\Tests\\": "entities/products/tests/src",
       "Bukin\\ProductsPackage\\Vendors\\": "entities/vendors/src/",

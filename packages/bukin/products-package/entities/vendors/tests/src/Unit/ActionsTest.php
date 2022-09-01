@@ -2,11 +2,8 @@
 
 namespace Bukin\ProductsPackage\Vendors\Tests\Unit;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Bukin\AdminPanel\Base\Application\Exceptions\ResourceDoesNotExistException;
 use Bukin\AdminPanel\Base\Application\Exceptions\ResourceExistsException;
-use Bukin\AdminPanel\Base\Application\Exceptions\SaveResourceToDBException;
 use Bukin\ProductsPackage\Vendors\Application\Actions\Resource\Destroy\DestroyAction;
 use Bukin\ProductsPackage\Vendors\Application\Actions\Resource\Destroy\DestroyItemData;
 use Bukin\ProductsPackage\Vendors\Application\Actions\Resource\Store\StoreAction;
@@ -15,6 +12,8 @@ use Bukin\ProductsPackage\Vendors\Application\Actions\Resource\Update\UpdateActi
 use Bukin\ProductsPackage\Vendors\Application\Actions\Resource\Update\UpdateItemData;
 use Bukin\ProductsPackage\Vendors\Domain\Entity\VendorModel;
 use Bukin\ProductsPackage\Vendors\Tests\TestCase;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
 
 class ActionsTest extends TestCase
 {
@@ -30,7 +29,7 @@ class ActionsTest extends TestCase
             code: $this->faker->text(255)
         );
 
-        $result = (new StoreAction(new VendorModel()))->execute($data);
+        $result = resolve(StoreAction::class)->execute($data);
 
         $this->assertDatabaseCount('products_package_vendors', 1);
 
@@ -52,7 +51,7 @@ class ActionsTest extends TestCase
             code: $this->faker->text(255)
         );
 
-        (new StoreAction(new VendorModel()))->execute($data);
+        resolve(StoreAction::class)->execute($data);
     }
 
     /** @test */
@@ -68,7 +67,7 @@ class ActionsTest extends TestCase
             code: $vendor->code
         );
 
-        (new StoreAction(new VendorModel()))->execute($data);
+        resolve(StoreAction::class)->execute($data);
     }
 
     /** @test */
@@ -82,7 +81,7 @@ class ActionsTest extends TestCase
             code: $vendor->code,
         );
 
-        $result = (new UpdateAction(new VendorModel()))->execute($data);
+        $result = resolve(UpdateAction::class )->execute($data);
 
         $this->assertDatabaseCount('products_package_vendors', 1);
 
@@ -102,7 +101,7 @@ class ActionsTest extends TestCase
             code: $this->faker->text(255)
         );
 
-        (new UpdateAction(new VendorModel()))->execute($data);
+        resolve(UpdateAction::class )->execute($data);
     }
 
     /** @test */
@@ -118,7 +117,7 @@ class ActionsTest extends TestCase
             code: $vendors->last()->code
         );
 
-        (new UpdateAction(new VendorModel))->execute($data);
+        resolve(UpdateAction::class )->execute($data);
     }
 
     /** @test */
@@ -130,7 +129,7 @@ class ActionsTest extends TestCase
             id: $vendors->first()->id,
         );
 
-        $result = (new DestroyAction(new VendorModel()))->execute($data);
+        $result = resolve(DestroyAction::class)->execute($data);
 
         $this->assertCount(1, VendorModel::all());
         $this->assertNotEquals($vendors->first()->id, VendorModel::first()->id);
@@ -148,6 +147,6 @@ class ActionsTest extends TestCase
             id: $this->faker->uuid()
         );
 
-        (new DestroyAction(new VendorModel()))->execute($data);
+        resolve(DestroyAction::class)->execute($data);
     }
 }

@@ -15,7 +15,7 @@
         "inetstudio/admin-panel": "^9.0",
         "laravel-json-api/laravel": "^2.3",
         "laravel/framework": "^9.0",
-        "laravel/sanctum": "^2.14",
+        "laravel/sanctum": "^3.0",
         "laravel/tinker": "^2.7",
         "laravel/ui": "^3.0",
         "mcaskill/composer-exclude-files": "^2.0",
@@ -41,6 +41,7 @@
             "Bukin\\AdminPanel\\Base\\": "packages/bukin/admin-panel/entities/base/src",
 
             "Bukin\\ProductsPackage\\": "packages/bukin/products-package/package/src",
+            "Bukin\\ProductsPackage\\Tests\\": "packages/bukin/products-package/package/tests/src",
             "Bukin\\ProductsPackage\\Products\\": "packages/bukin/products-package/entities/products/src",
             "Bukin\\ProductsPackage\\Products\\Tests\\": "packages/bukin/products-package/entities/products/tests/src",
             "Bukin\\ProductsPackage\\Vendors\\": "packages/bukin/products-package/entities/vendors/src",
@@ -56,13 +57,13 @@
     "scripts": {
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
-            "/usr/bin/php8.1 artisan package:discover --ansi"
+            "@php artisan package:discover --ansi"
         ],
         "post-root-package-install": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
         ],
         "post-create-project-cmd": [
-            "/usr/bin/php8.1 artisan key:generate --ansi"
+            "@php artisan key:generate --ansi"
         ]
     },
     "extra": {

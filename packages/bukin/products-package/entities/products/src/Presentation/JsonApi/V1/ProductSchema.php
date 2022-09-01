@@ -3,8 +3,8 @@
 namespace Bukin\ProductsPackage\Products\Presentation\JsonApi\V1;
 
 use Bukin\ProductsPackage\Products\Domain\Entity\ProductModel;
-use Bukin\ProductsPackage\Products\Presentation\JsonApi\V1\Filters\VendorFilter;
 use Bukin\ProductsPackage\Products\Presentation\JsonApi\V1\Filters\SuggestionFilter;
+use Bukin\ProductsPackage\Products\Presentation\JsonApi\V1\Filters\VendorFilter;
 use LaravelJsonApi\Eloquent\Contracts\Paginator;
 use LaravelJsonApi\Eloquent\Fields\DateTime;
 use LaravelJsonApi\Eloquent\Fields\ID;

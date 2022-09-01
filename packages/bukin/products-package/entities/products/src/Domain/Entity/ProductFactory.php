@@ -2,8 +2,8 @@
 
 namespace Bukin\ProductsPackage\Products\Domain\Entity;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
 use Bukin\ProductsPackage\Vendors\Domain\Entity\VendorModel;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
 class ProductFactory extends Factory
 {
