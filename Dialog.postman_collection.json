@@ -1,0 +1,1848 @@
+{
+	"info": {
+		"_postman_id": "6bb7993e-82ef-4238-ac85-53c5929d7b9a",
+		"name": "Dialog",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3234600"
+	},
+	"item": [
+		{
+			"name": "JsonAPI",
+			"item": [
+				{
+					"name": "Products",
+					"item": [
+						{
+							"name": "Index",
+							"item": [
+								{
+									"name": "Index",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/vnd.api+json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{api_url}}/api/jsonapi/products-package/v1/products",
+											"host": [
+												"{{api_url}}"
+											],
+											"path": [
+												"api",
+												"jsonapi",
+												"products-package",
+												"v1",
+												"products"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Index Sparse Fields",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/vnd.api+json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{api_url}}/api/jsonapi/products-package/v1/products?fields[products]=name",
+											"host": [
+												"{{api_url}}"
+											],
+											"path": [
+												"api",
+												"jsonapi",
+												"products-package",
+												"v1",
+												"products"
+											],
+											"query": [
+												{
+													"key": "fields[products]",
+													"value": "name"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Index Include Relation",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/vnd.api+json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{api_url}}/api/jsonapi/products-package/v1/products?include=vendor&page[number]=1&page[size]=2",
+											"host": [
+												"{{api_url}}"
+											],
+											"path": [
+												"api",
+												"jsonapi",
+												"products-package",
+												"v1",
+												"products"
+											],
+											"query": [
+												{
+													"key": "include",
+													"value": "vendor"
+												},
+												{
+													"key": "page[number]",
+													"value": "1"
+												},
+												{
+													"key": "page[size]",
+													"value": "2"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Index Sorting",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/vnd.api+json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{api_url}}/api/jsonapi/products-package/v1/products?sort=name",
+											"host": [
+												"{{api_url}}"
+											],
+											"path": [
+												"api",
+												"jsonapi",
+												"products-package",
+												"v1",
+												"products"
+											],
+											"query": [
+												{
+													"key": "sort",
+													"value": "name"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Index Pagination",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/vnd.api+json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{api_url}}/api/jsonapi/products-package/v1/products?page[number]=1&page[size]=10",
+											"host": [
+												"{{api_url}}"
+											],
+											"path": [
+												"api",
+												"jsonapi",
+												"products-package",
+												"v1",
+												"products"
+											],
+											"query": [
+												{
+													"key": "page[number]",
+													"value": "1"
+												},
+												{
+													"key": "page[size]",
+													"value": "10"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Index Suggestion Filter",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/vnd.api+json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{api_url}}/api/jsonapi/products-package/v1/products?filter[suggestion]=Odit",
+											"host": [
+												"{{api_url}}"
+											],
+											"path": [
+												"api",
+												"jsonapi",
+												"products-package",
+												"v1",
+												"products"
+											],
+											"query": [
+												{
+													"key": "filter[suggestion]",
+													"value": "Odit"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Index Vendor Filter",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/vnd.api+json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{api_url}}/api/jsonapi/products-package/v1/products?filter[vendor]=42709d1c550ab5a95f3595f4897502a6",
+											"host": [
+												"{{api_url}}"
+											],
+											"path": [
+												"api",
+												"jsonapi",
+												"products-package",
+												"v1",
+												"products"
+											],
+											"query": [
+												{
+													"key": "filter[vendor]",
+													"value": "42709d1c550ab5a95f3595f4897502a6"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Relationships",
+							"item": [
+								{
+									"name": "Vendor",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/vnd.api+json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{api_url}}/api/jsonapi/products-package/v1/products/9905b8d8-530b-3f80-8ce1-ee17c25ab2a9/vendor",
+											"host": [
+												"{{api_url}}"
+											],
+											"path": [
+												"api",
+												"jsonapi",
+												"products-package",
+												"v1",
+												"products",
+												"9905b8d8-530b-3f80-8ce1-ee17c25ab2a9",
+												"vendor"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Show Vendor",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/vnd.api+json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{api_url}}/api/jsonapi/products-package/v1/products/9905b8d8-530b-3f80-8ce1-ee17c25ab2a9/relationships/vendor",
+											"host": [
+												"{{api_url}}"
+											],
+											"path": [
+												"api",
+												"jsonapi",
+												"products-package",
+												"v1",
+												"products",
+												"9905b8d8-530b-3f80-8ce1-ee17c25ab2a9",
+												"relationships",
+												"vendor"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Show",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/vnd.api+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{api_url}}/api/jsonapi/products-package/v1/products/4730b7ab-c17e-30bf-8e7c-a0bc0ab5b131",
+									"host": [
+										"{{api_url}}"
+									],
+									"path": [
+										"api",
+										"jsonapi",
+										"products-package",
+										"v1",
+										"products",
+										"4730b7ab-c17e-30bf-8e7c-a0bc0ab5b131"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Store",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"accept": true
+								}
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/vnd.api+json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/vnd.api+json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"data\": {\n    \"type\": \"products\",\n    \"id\": \"527a16f2-68e2-4164-a237-6565992b80c7\",\n    \"attributes\": {\n      \"name\": \"Test product\"\n    },\n    \"relationships\": {\n      \"vendor\": {\n        \"data\": {\n          \"type\": \"vendors\",\n          \"id\": \"3946c42e-19b8-3799-b707-93f980a905d0\"\n        }\n      }\n    }   \n  }\n}"
+								},
+								"url": {
+									"raw": "{{api_url}}/api/jsonapi/products-package/v1/products?include=vendor",
+									"host": [
+										"{{api_url}}"
+									],
+									"path": [
+										"api",
+										"jsonapi",
+										"products-package",
+										"v1",
+										"products"
+									],
+									"query": [
+										{
+											"key": "include",
+											"value": "vendor"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/vnd.api+json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/vnd.api+json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"data\": {\n    \"type\": \"products\",\n    \"id\": \"e3ac0969-6057-3a55-bfeb-958912b24737\",\n    \"attributes\": {\n      \"name\": \"test-name\"\n    },\n    \"relationships\": {\n      \"vendor\": {\n        \"data\": {\n          \"type\": \"vendors\",\n          \"id\": \"3946c42e-19b8-3799-b707-93f980a905d0\"\n        }\n      }\n    }\n  }\n}\n"
+								},
+								"url": {
+									"raw": "{{api_url}}/api/jsonapi/products-package/v1/products/e3ac0969-6057-3a55-bfeb-958912b24737?include=vendor",
+									"host": [
+										"{{api_url}}"
+									],
+									"path": [
+										"api",
+										"jsonapi",
+										"products-package",
+										"v1",
+										"products",
+										"e3ac0969-6057-3a55-bfeb-958912b24737"
+									],
+									"query": [
+										{
+											"key": "include",
+											"value": "vendor"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/vnd.api+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{api_url}}/api/jsonapi/products-package/v1/products/94f5fd49-20f1-3af5-8a4c-f917cbd21a76",
+									"host": [
+										"{{api_url}}"
+									],
+									"path": [
+										"api",
+										"jsonapi",
+										"products-package",
+										"v1",
+										"products",
+										"94f5fd49-20f1-3af5-8a4c-f917cbd21a76"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Vendors",
+					"item": [
+						{
+							"name": "Index",
+							"item": [
+								{
+									"name": "Index",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/vnd.api+json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{api_url}}/api/jsonapi/products-package/v1/vendors",
+											"host": [
+												"{{api_url}}"
+											],
+											"path": [
+												"api",
+												"jsonapi",
+												"products-package",
+												"v1",
+												"vendors"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Index Sparse fields",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/vnd.api+json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{api_url}}/api/jsonapi/products-package/v1/vendors?fields[vendors]=code",
+											"host": [
+												"{{api_url}}"
+											],
+											"path": [
+												"api",
+												"jsonapi",
+												"products-package",
+												"v1",
+												"vendors"
+											],
+											"query": [
+												{
+													"key": "fields[vendors]",
+													"value": "code"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Index Include Relation",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/vnd.api+json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{api_url}}/api/jsonapi/products-package/v1/vendors?include=products&page[number]=1&page[size]=2",
+											"host": [
+												"{{api_url}}"
+											],
+											"path": [
+												"api",
+												"jsonapi",
+												"products-package",
+												"v1",
+												"vendors"
+											],
+											"query": [
+												{
+													"key": "include",
+													"value": "products"
+												},
+												{
+													"key": "page[number]",
+													"value": "1"
+												},
+												{
+													"key": "page[size]",
+													"value": "2"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Index Sorting",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/vnd.api+json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{api_url}}/api/jsonapi/products-package/v1/vendors?sort=-code",
+											"host": [
+												"{{api_url}}"
+											],
+											"path": [
+												"api",
+												"jsonapi",
+												"products-package",
+												"v1",
+												"vendors"
+											],
+											"query": [
+												{
+													"key": "sort",
+													"value": "-code"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Index Pagination",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/vnd.api+json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{api_url}}/api/jsonapi/products-package/v1/vendors?page[number]=1&page[size]=10",
+											"host": [
+												"{{api_url}}"
+											],
+											"path": [
+												"api",
+												"jsonapi",
+												"products-package",
+												"v1",
+												"vendors"
+											],
+											"query": [
+												{
+													"key": "page[number]",
+													"value": "1"
+												},
+												{
+													"key": "page[size]",
+													"value": "10"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Index Suggestion Filter",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/vnd.api+json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{api_url}}/api/jsonapi/products-package/v1/vendors?filter[suggestion]=61aacf043a0b39846120d47848fb9f28",
+											"host": [
+												"{{api_url}}"
+											],
+											"path": [
+												"api",
+												"jsonapi",
+												"products-package",
+												"v1",
+												"vendors"
+											],
+											"query": [
+												{
+													"key": "filter[suggestion]",
+													"value": "61aacf043a0b39846120d47848fb9f28"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Relationships",
+							"item": [
+								{
+									"name": "Products",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/vnd.api+json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{api_url}}/api/jsonapi/products-package/v1/vendors/e9e9dd3d-2d3a-45f8-809c-d3f70687fe5b/products",
+											"host": [
+												"{{api_url}}"
+											],
+											"path": [
+												"api",
+												"jsonapi",
+												"products-package",
+												"v1",
+												"vendors",
+												"e9e9dd3d-2d3a-45f8-809c-d3f70687fe5b",
+												"products"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Show Products",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/vnd.api+json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{api_url}}/api/jsonapi/products-package/v1/vendors/e9e9dd3d-2d3a-45f8-809c-d3f70687fe5b/relationships/products",
+											"host": [
+												"{{api_url}}"
+											],
+											"path": [
+												"api",
+												"jsonapi",
+												"products-package",
+												"v1",
+												"vendors",
+												"e9e9dd3d-2d3a-45f8-809c-d3f70687fe5b",
+												"relationships",
+												"products"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Show",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/vnd.api+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{api_url}}/api/jsonapi/products-package/v1/vendors/7a3cb96c-d248-3470-a030-4df488c4b90f",
+									"host": [
+										"{{api_url}}"
+									],
+									"path": [
+										"api",
+										"jsonapi",
+										"products-package",
+										"v1",
+										"vendors",
+										"7a3cb96c-d248-3470-a030-4df488c4b90f"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Store",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"accept": true
+								}
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/vnd.api+json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/vnd.api+json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"data\": {\n    \"type\": \"vendors\",\n    \"id\": \"e9e9dd3d-2d3a-45f8-809c-d3f70687fe5b\",\n    \"attributes\": {\n      \"name\": \"Test Vendor\",\n      \"code\": \"test_vendor_code\"\n    }\n  }\n}"
+								},
+								"url": {
+									"raw": "{{api_url}}/api/jsonapi/products-package/v1/vendors",
+									"host": [
+										"{{api_url}}"
+									],
+									"path": [
+										"api",
+										"jsonapi",
+										"products-package",
+										"v1",
+										"vendors"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/vnd.api+json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/vnd.api+json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"data\": {\n    \"type\": \"vendors\",\n    \"id\": \"e9e9dd3d-2d3a-45f8-809c-d3f70687fe5b\",\n    \"attributes\": {\n      \"name\": \"new-name-test\",\n      \"code\": \"new-code-test\"\n    }\n  }\n}\n"
+								},
+								"url": {
+									"raw": "{{api_url}}/api/jsonapi/products-package/v1/vendors/e9e9dd3d-2d3a-45f8-809c-d3f70687fe5b",
+									"host": [
+										"{{api_url}}"
+									],
+									"path": [
+										"api",
+										"jsonapi",
+										"products-package",
+										"v1",
+										"vendors",
+										"e9e9dd3d-2d3a-45f8-809c-d3f70687fe5b"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/vnd.api+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{api_url}}/api/jsonapi/products-package/v1/vendors/7a3cb96c-d248-3470-a030-4df488c4b90f",
+									"host": [
+										"{{api_url}}"
+									],
+									"path": [
+										"api",
+										"jsonapi",
+										"products-package",
+										"v1",
+										"vendors",
+										"7a3cb96c-d248-3470-a030-4df488c4b90f"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			],
+			"description": "[https://jsonapi.org/](https://jsonapi.org/)"
+		},
+		{
+			"name": "Simple API",
+			"item": [
+				{
+					"name": "Products",
+					"item": [
+						{
+							"name": "Index",
+							"item": [
+								{
+									"name": "Index",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "X-Requested-With",
+												"value": "XMLHttpRequest",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{api_url}}/api/simple/products-package/v1/products",
+											"host": [
+												"{{api_url}}"
+											],
+											"path": [
+												"api",
+												"simple",
+												"products-package",
+												"v1",
+												"products"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Index Include Vendor",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "X-Requested-With",
+												"value": "XMLHttpRequest",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{api_url}}/api/simple/products-package/v1/products?include=vendor",
+											"host": [
+												"{{api_url}}"
+											],
+											"path": [
+												"api",
+												"simple",
+												"products-package",
+												"v1",
+												"products"
+											],
+											"query": [
+												{
+													"key": "include",
+													"value": "vendor"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Index Sparse Fields",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "X-Requested-With",
+												"value": "XMLHttpRequest",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{api_url}}/api/simple/products-package/v1/products?fields[products_package_products]=id,name",
+											"host": [
+												"{{api_url}}"
+											],
+											"path": [
+												"api",
+												"simple",
+												"products-package",
+												"v1",
+												"products"
+											],
+											"query": [
+												{
+													"key": "fields[products_package_products]",
+													"value": "id,name"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Index Sorting",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "X-Requested-With",
+												"value": "XMLHttpRequest",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{api_url}}/api/simple/products-package/v1/products?sort=-name",
+											"host": [
+												"{{api_url}}"
+											],
+											"path": [
+												"api",
+												"simple",
+												"products-package",
+												"v1",
+												"products"
+											],
+											"query": [
+												{
+													"key": "sort",
+													"value": "-name"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Index Pagination",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "X-Requested-With",
+												"value": "XMLHttpRequest",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{api_url}}/api/simple/products-package/v1/products?page[number]=1&page[size]=10",
+											"host": [
+												"{{api_url}}"
+											],
+											"path": [
+												"api",
+												"simple",
+												"products-package",
+												"v1",
+												"products"
+											],
+											"query": [
+												{
+													"key": "page[number]",
+													"value": "1"
+												},
+												{
+													"key": "page[size]",
+													"value": "10"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Index ID Filter",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "X-Requested-With",
+												"value": "XMLHttpRequest",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{api_url}}/api/simple/products-package/v1/products?filter[id]=9601e634-1454-3dcb-9ac3-8a2e1f8251ba",
+											"host": [
+												"{{api_url}}"
+											],
+											"path": [
+												"api",
+												"simple",
+												"products-package",
+												"v1",
+												"products"
+											],
+											"query": [
+												{
+													"key": "filter[id]",
+													"value": "9601e634-1454-3dcb-9ac3-8a2e1f8251ba"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Index Name Filter",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "X-Requested-With",
+												"value": "XMLHttpRequest",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{api_url}}/api/simple/products-package/v1/products?filter[name]=Omnis a enim autem at et. Eum sed sit non ex ducimus nemo. Similique at quaerat laudantium.",
+											"host": [
+												"{{api_url}}"
+											],
+											"path": [
+												"api",
+												"simple",
+												"products-package",
+												"v1",
+												"products"
+											],
+											"query": [
+												{
+													"key": "filter[name]",
+													"value": "Omnis a enim autem at et. Eum sed sit non ex ducimus nemo. Similique at quaerat laudantium."
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Index Suggestion Filter",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "X-Requested-With",
+												"value": "XMLHttpRequest",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{api_url}}/api/simple/products-package/v1/products?filter[suggestion]=test",
+											"host": [
+												"{{api_url}}"
+											],
+											"path": [
+												"api",
+												"simple",
+												"products-package",
+												"v1",
+												"products"
+											],
+											"query": [
+												{
+													"key": "filter[suggestion]",
+													"value": "test"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Index Vendor Filter",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "X-Requested-With",
+												"value": "XMLHttpRequest",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{api_url}}/api/simple/products-package/v1/products?filter[vendor]=42709d1c550ab5a95f3595f4897502a6&include=vendor",
+											"host": [
+												"{{api_url}}"
+											],
+											"path": [
+												"api",
+												"simple",
+												"products-package",
+												"v1",
+												"products"
+											],
+											"query": [
+												{
+													"key": "filter[vendor]",
+													"value": "42709d1c550ab5a95f3595f4897502a6"
+												},
+												{
+													"key": "include",
+													"value": "vendor"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Show",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-Requested-With",
+										"value": "XMLHttpRequest",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{api_url}}/api/simple/products-package/v1/products/9905b8d8-530b-3f80-8ce1-ee17c25ab2a9",
+									"host": [
+										"{{api_url}}"
+									],
+									"path": [
+										"api",
+										"simple",
+										"products-package",
+										"v1",
+										"products",
+										"9905b8d8-530b-3f80-8ce1-ee17c25ab2a9"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Store",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"accept": true
+								}
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-Requested-With",
+										"value": "XMLHttpRequest",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "id",
+											"value": "e9390ec5-3e4e-49ee-beea-6091333ad432",
+											"type": "text"
+										},
+										{
+											"key": "name",
+											"value": "test_product",
+											"type": "text"
+										},
+										{
+											"key": "vendor_id",
+											"value": "cb9305c7-c54d-3649-ba68-39c8e48b7a06",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{api_url}}/api/simple/products-package/v1/products",
+									"host": [
+										"{{api_url}}"
+									],
+									"path": [
+										"api",
+										"simple",
+										"products-package",
+										"v1",
+										"products"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-Requested-With",
+										"value": "XMLHttpRequest",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "_method",
+											"value": "patch",
+											"type": "text"
+										},
+										{
+											"key": "name",
+											"value": "test_product_new2",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{api_url}}/api/simple/products-package/v1/products/e9390ec5-3e4e-49ee-beea-6091333ad432",
+									"host": [
+										"{{api_url}}"
+									],
+									"path": [
+										"api",
+										"simple",
+										"products-package",
+										"v1",
+										"products",
+										"e9390ec5-3e4e-49ee-beea-6091333ad432"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "X-Requested-With",
+										"value": "XMLHttpRequest",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{api_url}}/api/simple/products-package/v1/products/20d4b282-b3a2-33e2-9001-e89e4c913487",
+									"host": [
+										"{{api_url}}"
+									],
+									"path": [
+										"api",
+										"simple",
+										"products-package",
+										"v1",
+										"products",
+										"20d4b282-b3a2-33e2-9001-e89e4c913487"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Vendors",
+					"item": [
+						{
+							"name": "Index",
+							"item": [
+								{
+									"name": "Index",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "X-Requested-With",
+												"value": "XMLHttpRequest",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{api_url}}/api/simple/products-package/v1/vendors",
+											"host": [
+												"{{api_url}}"
+											],
+											"path": [
+												"api",
+												"simple",
+												"products-package",
+												"v1",
+												"vendors"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Index Include Products",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "X-Requested-With",
+												"value": "XMLHttpRequest",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{api_url}}/api/simple/products-package/v1/vendors?include=products",
+											"host": [
+												"{{api_url}}"
+											],
+											"path": [
+												"api",
+												"simple",
+												"products-package",
+												"v1",
+												"vendors"
+											],
+											"query": [
+												{
+													"key": "include",
+													"value": "products"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Index Sparse Fields",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "X-Requested-With",
+												"value": "XMLHttpRequest",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{api_url}}/api/simple/products-package/v1/vendors?fields[products_package_vendors]=id,code",
+											"host": [
+												"{{api_url}}"
+											],
+											"path": [
+												"api",
+												"simple",
+												"products-package",
+												"v1",
+												"vendors"
+											],
+											"query": [
+												{
+													"key": "fields[products_package_vendors]",
+													"value": "id,code"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Index Sorting",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "X-Requested-With",
+												"value": "XMLHttpRequest",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{api_url}}/api/simple/products-package/v1/vendors?sort=-code",
+											"host": [
+												"{{api_url}}"
+											],
+											"path": [
+												"api",
+												"simple",
+												"products-package",
+												"v1",
+												"vendors"
+											],
+											"query": [
+												{
+													"key": "sort",
+													"value": "-code"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Index Pagination",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "X-Requested-With",
+												"value": "XMLHttpRequest",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{api_url}}/api/simple/products-package/v1/vendors?page[number]=1&page[size]=10",
+											"host": [
+												"{{api_url}}"
+											],
+											"path": [
+												"api",
+												"simple",
+												"products-package",
+												"v1",
+												"vendors"
+											],
+											"query": [
+												{
+													"key": "page[number]",
+													"value": "1"
+												},
+												{
+													"key": "page[size]",
+													"value": "10"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Index ID Filter",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "X-Requested-With",
+												"value": "XMLHttpRequest",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{api_url}}/api/simple/products-package/v1/vendors?filter[id]=cb9305c7-c54d-3649-ba68-39c8e48b7a06",
+											"host": [
+												"{{api_url}}"
+											],
+											"path": [
+												"api",
+												"simple",
+												"products-package",
+												"v1",
+												"vendors"
+											],
+											"query": [
+												{
+													"key": "filter[id]",
+													"value": "cb9305c7-c54d-3649-ba68-39c8e48b7a06"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Index Name Filter",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "X-Requested-With",
+												"value": "XMLHttpRequest",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{api_url}}/api/simple/products-package/v1/vendors?filter[name]=Consectetur veniam a non iste necessitatibus fugit. Quia ipsa voluptatem rerum et sit dolor. Aliquam facilis consequatur facere a voluptas itaque ipsam.",
+											"host": [
+												"{{api_url}}"
+											],
+											"path": [
+												"api",
+												"simple",
+												"products-package",
+												"v1",
+												"vendors"
+											],
+											"query": [
+												{
+													"key": "filter[name]",
+													"value": "Consectetur veniam a non iste necessitatibus fugit. Quia ipsa voluptatem rerum et sit dolor. Aliquam facilis consequatur facere a voluptas itaque ipsam."
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Index Code Filter",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "X-Requested-With",
+												"value": "XMLHttpRequest",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{api_url}}/api/simple/products-package/v1/vendors?filter[code]=42709d1c550ab5a95f3595f4897502a6",
+											"host": [
+												"{{api_url}}"
+											],
+											"path": [
+												"api",
+												"simple",
+												"products-package",
+												"v1",
+												"vendors"
+											],
+											"query": [
+												{
+													"key": "filter[code]",
+													"value": "42709d1c550ab5a95f3595f4897502a6"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Index Suggestion Filter",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "X-Requested-With",
+												"value": "XMLHttpRequest",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{api_url}}/api/simple/products-package/v1/vendors?filter[suggestion]=42709d1c550ab5a95f3595f4897502a6",
+											"host": [
+												"{{api_url}}"
+											],
+											"path": [
+												"api",
+												"simple",
+												"products-package",
+												"v1",
+												"vendors"
+											],
+											"query": [
+												{
+													"key": "filter[suggestion]",
+													"value": "42709d1c550ab5a95f3595f4897502a6"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Show",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-Requested-With",
+										"value": "XMLHttpRequest",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{api_url}}/api/simple/products-package/v1/vendors/cb9305c7-c54d-3649-ba68-39c8e48b7a06",
+									"host": [
+										"{{api_url}}"
+									],
+									"path": [
+										"api",
+										"simple",
+										"products-package",
+										"v1",
+										"vendors",
+										"cb9305c7-c54d-3649-ba68-39c8e48b7a06"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Store",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"accept": true
+								}
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-Requested-With",
+										"value": "XMLHttpRequest",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "id",
+											"value": "05aadf20-f36c-434f-8930-5f211eca1da9",
+											"type": "text"
+										},
+										{
+											"key": "name",
+											"value": "test_vendor",
+											"type": "text"
+										},
+										{
+											"key": "code",
+											"value": "test_vendor_code",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{api_url}}/api/simple/products-package/v1/vendors",
+									"host": [
+										"{{api_url}}"
+									],
+									"path": [
+										"api",
+										"simple",
+										"products-package",
+										"v1",
+										"vendors"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-Requested-With",
+										"value": "XMLHttpRequest",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "_method",
+											"value": "patch",
+											"type": "text"
+										},
+										{
+											"key": "name",
+											"value": "test_vendor_new",
+											"type": "text"
+										},
+										{
+											"key": "code",
+											"value": "new_code",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{api_url}}/api/simple/products-package/v1/vendors/05aadf20-f36c-434f-8930-5f211eca1da9",
+									"host": [
+										"{{api_url}}"
+									],
+									"path": [
+										"api",
+										"simple",
+										"products-package",
+										"v1",
+										"vendors",
+										"05aadf20-f36c-434f-8930-5f211eca1da9"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "X-Requested-With",
+										"value": "XMLHttpRequest",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{api_url}}/api/simple/products-package/v1/vendors/204fb89e-5643-375d-8d15-360887192607",
+									"host": [
+										"{{api_url}}"
+									],
+									"path": [
+										"api",
+										"simple",
+										"products-package",
+										"v1",
+										"vendors",
+										"204fb89e-5643-375d-8d15-360887192607"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "2|o1YB2FlzFMc5POAo09fROpfveUFdCA9FRAFtoqyS",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "api_url",
+			"value": "http://dialog.inet.digital",
+			"type": "string"
+		}
+	]
+}

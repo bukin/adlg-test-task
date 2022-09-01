@@ -27,6 +27,12 @@ class ShowResponse extends BaseResponse
             return $errorResponse;
         }
 
+        if (! $this->result->first()) {
+            return response()->json([
+                'error' => sprintf('The resource %s does not exist.', $request->route('vendor'))
+            ], 404);
+        }
+
         $resource = new ShowResource($this->result->first());
 
         return $resource->response();
