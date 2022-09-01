@@ -35,7 +35,7 @@ task('deploy:vendors', function () {
     if (!commandExist('unzip')) {
         warning('To speed up composer installation setup "unzip" command with PHP zip extension.');
     }
-    run('cd {{release_path}} && /usr/bin/php8.1 {{bin/composer}} install --verbose --prefer-dist --no-progress --no-interaction --no-dev --optimize-autoloader --ignore-platform-reqs 2>&1');
+    run('cd {{release_path}} && /usr/bin/php8.1 {{bin/composer}} install --verbose --prefer-dist --no-progress --no-interaction --optimize-autoloader --ignore-platform-reqs 2>&1');
 });
 
 // Deploy
