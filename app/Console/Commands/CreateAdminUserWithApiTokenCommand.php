@@ -15,16 +15,11 @@ class CreateAdminUserWithApiTokenCommand extends Command
 
     protected $description = 'Create admin user with api token';
 
-    protected $rolesService;
-
-    protected $usersService;
-
-    public function __construct(ItemsServiceContract $rolesService, UsersServiceContract $usersService)
-    {
+    public function __construct(
+        protected ItemsServiceContract $rolesService,
+        protected UsersServiceContract $usersService
+    ) {
         parent::__construct();
-
-        $this->rolesService = $rolesService;
-        $this->usersService = $usersService;
     }
 
     public function handle(): void
