@@ -18,6 +18,7 @@
 - docker-compose exec php php artisan db:seed --class="\Bukin\ProductsPackage\Vendors\Domain\Entity\VendorSeeder"
 
 <p><strong>Misc</strong></p>
+
 - Run tests: docker-compose exec php php artisan test packages/bukin/products-package
 - Postman collection: Dialog.postman_collection.json
 - Show products by console command: docker-compose exec php php artisan bukin:products-package:products:show
