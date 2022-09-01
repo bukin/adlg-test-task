@@ -1816,16 +1816,16 @@
         },
         {
             "name": "inetstudio/acl",
-            "version": "v9.1.1",
+            "version": "v9.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/inetstudio/acl.git",
-                "reference": "a0b35a1620698c84b610e62af131d00d129e5b52"
+                "reference": "12884c1e87def9b7ae604246a9625825b5b98fb6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/inetstudio/acl/zipball/a0b35a1620698c84b610e62af131d00d129e5b52",
-                "reference": "a0b35a1620698c84b610e62af131d00d129e5b52",
+                "url": "https://api.github.com/repos/inetstudio/acl/zipball/12884c1e87def9b7ae604246a9625825b5b98fb6",
+                "reference": "12884c1e87def9b7ae604246a9625825b5b98fb6",
                 "shasum": ""
             },
             "require": {
@@ -1887,9 +1887,9 @@
             "homepage": "https://github.com/inetstudio/acl",
             "support": {
                 "issues": "https://github.com/inetstudio/acl/issues",
-                "source": "https://github.com/inetstudio/acl/tree/v9.1.1"
+                "source": "https://github.com/inetstudio/acl/tree/v9.2.0"
             },
-            "time": "2022-09-01T09:29:10+00:00"
+            "time": "2022-09-01T11:06:25+00:00"
         },
         {
             "name": "inetstudio/admin-panel",
