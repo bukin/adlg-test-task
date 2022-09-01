@@ -2,9 +2,9 @@
 
 namespace Bukin\ProductsPackage\Vendors\Tests\Unit;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Bukin\ProductsPackage\Vendors\Domain\Entity\VendorModel;
 use Bukin\ProductsPackage\Vendors\Tests\TestCase;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class VendorModelTest extends TestCase
 {

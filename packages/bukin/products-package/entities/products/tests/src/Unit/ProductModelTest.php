@@ -2,9 +2,9 @@
 
 namespace Bukin\ProductsPackage\Products\Tests\Unit;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Bukin\ProductsPackage\Products\Domain\Entity\ProductModel;
 use Bukin\ProductsPackage\Products\Tests\TestCase;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ProductModelTest extends TestCase
 {

@@ -2,8 +2,8 @@
 
 namespace Bukin\ProductsPackage\Products\Domain\Filters;
 
-use Spatie\QueryBuilder\Filters\Filter;
 use Illuminate\Database\Eloquent\Builder;
+use Spatie\QueryBuilder\Filters\Filter;
 
 class VendorFilter implements Filter
 {

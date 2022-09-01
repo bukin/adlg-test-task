@@ -2,17 +2,21 @@
 
 namespace Bukin\ProductsPackage\Vendors\Application\Actions\Resource\Update;
 
-use Illuminate\Support\Facades\DB;
+use Bukin\AdminPanel\Base\Application\Exceptions\ResourceDoesNotExistException;
 use Bukin\AdminPanel\Base\Application\Exceptions\ResourceExistsException;
 use Bukin\AdminPanel\Base\Application\Exceptions\SaveResourceToDBException;
-use Bukin\AdminPanel\Base\Application\Exceptions\ResourceDoesNotExistException;
+use Bukin\ProductsPackage\Vendors\Application\Actions\Checks\CheckWithCodeExistsAction;
+use Bukin\ProductsPackage\Vendors\Application\Actions\Checks\CheckWithIdExistsAction;
 use Bukin\ProductsPackage\Vendors\Domain\Entity\VendorModelContract;
+use Illuminate\Support\Facades\DB;
 use Throwable;
 
 class UpdateAction
 {
     public function __construct(
-        protected VendorModelContract $model
+        protected VendorModelContract $model,
+        protected CheckWithCodeExistsAction $checkWithCodeExistsAction,
+        protected CheckWithIdExistsAction $checkWithIdExistsAction
     ) {}
 
     /**
@@ -30,7 +34,7 @@ class UpdateAction
         }
 
         if ($data->code) {
-            $this->checkWithCodeExists($item, $data->code);
+            $this->checkWithCodeExistsAction->execute($data->code, $item);
         }
 
         $preparedData = $this->getDataForUpdate($item, $data);
@@ -50,18 +54,6 @@ class UpdateAction
         }
 
         return $item;
-    }
-
-    /**
-     * @throws ResourceExistsException
-     */
-    protected function checkWithCodeExists(VendorModelContract $item, string $code): void
-    {
-        $exists = $this->model::where('id', '!=', $item->id)->where('code', '=', $code)->exists();
-
-        if ($exists) {
-            throw ResourceExistsException::resourceWithFieldExists('code', $code);
-        }
     }
 
     protected function getDataForUpdate(VendorModelContract $item, UpdateItemData $data): array

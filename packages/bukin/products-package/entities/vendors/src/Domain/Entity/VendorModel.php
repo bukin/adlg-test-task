@@ -2,12 +2,12 @@
 
 namespace Bukin\ProductsPackage\Vendors\Domain\Entity;
 
+use Bukin\ProductsPackage\Products\Domain\Entity\ProductModelContract;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use InetStudio\AdminPanel\Base\Models\Traits\HasUuidPrimaryKey;
-use Bukin\ProductsPackage\Products\Domain\Entity\ProductModelContract;
 use OwenIt\Auditing\Auditable;
 
 class VendorModel extends Model implements VendorModelContract

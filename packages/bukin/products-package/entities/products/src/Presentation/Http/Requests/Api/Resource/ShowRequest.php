@@ -2,10 +2,10 @@
 
 namespace Bukin\ProductsPackage\Products\Presentation\Http\Requests\Api\Resource;
 
+use Bukin\ProductsPackage\Products\Application\Queries\FetchItemsByQueryData;
 use Illuminate\Foundation\Http\FormRequest;
 use Spatie\DataTransferObject\DataTransferObject;
 use Spatie\DataTransferObject\Exceptions\UnknownProperties;
-use Bukin\ProductsPackage\Products\Application\Queries\FetchItemsByQueryData;
 
 class ShowRequest extends FormRequest
 {

@@ -2,12 +2,15 @@
 
 namespace Bukin\ProductsPackage\Products\Application\Actions\Resource\Store;
 
-use Illuminate\Support\Facades\DB;
-use Spatie\QueueableAction\QueueableAction;
+use Bukin\AdminPanel\Base\Application\Exceptions\ResourceDoesNotExistException;
 use Bukin\AdminPanel\Base\Application\Exceptions\ResourceExistsException;
 use Bukin\AdminPanel\Base\Application\Exceptions\SaveResourceToDBException;
+use Bukin\ProductsPackage\Products\Application\Actions\Checks\CheckWithIdExistsAction as CheckProductWithIdExistsAction;
 use Bukin\ProductsPackage\Products\Domain\Entity\ProductModelContract;
-use Ramsey\Uuid\UuidInterface;
+use Bukin\ProductsPackage\Vendors\Application\Actions\Checks\CheckWithIdDoesNotExistsAction as CheckVendorWithIdDoesNotExistsAction;
+use Illuminate\Support\Facades\DB;
+use Spatie\DataTransferObject\Exceptions\UnknownProperties;
+use Spatie\QueueableAction\QueueableAction;
 use Throwable;
 
 class StoreAction
@@ -15,16 +18,21 @@ class StoreAction
     use QueueableAction;
 
     public function __construct(
-        protected ProductModelContract $model
+        protected ProductModelContract $model,
+        protected CheckProductWithIdExistsAction $checkProductWithIdExistsAction,
+        protected CheckVendorWithIdDoesNotExistsAction $checkVendorWithIdDoeNotExistsAction
     ) {}
 
     /**
      * @throws ResourceExistsException
+     * @throws ResourceDoesNotExistException
      * @throws SaveResourceToDBException
+     * @throws UnknownProperties
      */
     public function execute(StoreItemData $data): ProductModelContract
     {
-        $this->checkWithIdExists($data->id);
+        $this->checkProductWithIdExistsAction->execute($data->id);
+        $this->checkVendorWithIdDoeNotExistsAction->execute($data->vendor_id);
 
         try {
             $item = DB::transaction(function () use ($data) {
@@ -43,21 +51,5 @@ class StoreAction
         }
 
         return $item;
-    }
-
-    /**
-     * @throws ResourceExistsException
-     */
-    protected function checkWithIdExists(?UuidInterface $id): void
-    {
-        if (! $id) {
-            return;
-        }
-
-        $item = $this->model::find($id->toString());
-
-        if ($item) {
-            throw ResourceExistsException::resourceWithFieldExists('id', $id->toString());
-        }
     }
 }

@@ -2,11 +2,8 @@
 
 namespace Bukin\ProductsPackage\Products\Tests\Unit;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Bukin\AdminPanel\Base\Application\Exceptions\ResourceDoesNotExistException;
 use Bukin\AdminPanel\Base\Application\Exceptions\ResourceExistsException;
-use Bukin\AdminPanel\Base\Application\Exceptions\SaveResourceToDBException;
 use Bukin\ProductsPackage\Products\Application\Actions\Resource\Destroy\DestroyAction;
 use Bukin\ProductsPackage\Products\Application\Actions\Resource\Destroy\DestroyItemData;
 use Bukin\ProductsPackage\Products\Application\Actions\Resource\Store\StoreAction;
@@ -16,6 +13,8 @@ use Bukin\ProductsPackage\Products\Application\Actions\Resource\Update\UpdateIte
 use Bukin\ProductsPackage\Products\Domain\Entity\ProductModel;
 use Bukin\ProductsPackage\Products\Tests\TestCase;
 use Bukin\ProductsPackage\Vendors\Domain\Entity\VendorModel;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
 
 class ActionsTest extends TestCase
 {
@@ -33,7 +32,7 @@ class ActionsTest extends TestCase
             vendor_id: $vendor->id
         );
 
-        $result = (new StoreAction(new ProductModel()))->execute($data);
+        $result = resolve(StoreAction::class)->execute($data);
 
         $this->assertDatabaseCount('products_package_products', 1);
 
@@ -55,7 +54,7 @@ class ActionsTest extends TestCase
             vendor_id: $product->vendor->id
         );
 
-        (new StoreAction(new ProductModel()))->execute($data);
+        resolve(StoreAction::class)->execute($data);
     }
 
     /** @test */
@@ -70,7 +69,7 @@ class ActionsTest extends TestCase
             vendor_id: $product->vendor->id
         );
 
-        $result = (new UpdateAction(new ProductModel()))->execute($data);
+        $result = resolve(UpdateAction::class)->execute($data);
 
         $this->assertDatabaseCount('products_package_products', 1);
 
@@ -92,7 +91,7 @@ class ActionsTest extends TestCase
             vendor_id: $vendor->id
         );
 
-        (new UpdateAction(new ProductModel()))->execute($data);
+        resolve(UpdateAction::class)->execute($data);
     }
 
     /** @test */
@@ -105,7 +104,7 @@ class ActionsTest extends TestCase
             id: $products->first()->id,
         );
 
-        $result = (new DestroyAction(new ProductModel))->execute($data);
+        $result = resolve(DestroyAction::class)->execute($data);
 
         $this->assertCount(1, ProductModel::all());
         $this->assertNotEquals($products->first()->id, ProductModel::first()->id);
@@ -124,7 +123,7 @@ class ActionsTest extends TestCase
             id: $this->faker->uuid()
         );
 
-        $result = (new DestroyAction(new ProductModel))->execute($data);
+        $result = resolve(DestroyAction::class)->execute($data);
 
         $this->assertCount(1, ProductModel::all());
         $this->assertEquals(0, $result);

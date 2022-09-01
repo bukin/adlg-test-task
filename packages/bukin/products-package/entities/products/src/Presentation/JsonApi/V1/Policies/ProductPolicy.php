@@ -2,9 +2,9 @@
 
 namespace Bukin\ProductsPackage\Products\Presentation\JsonApi\V1\Policies;
 
+use Bukin\ProductsPackage\Products\Domain\Entity\ProductModelContract;
 use Illuminate\Auth\Access\HandlesAuthorization;
 use InetStudio\ACL\Users\Contracts\Models\UserModelContract;
-use Bukin\ProductsPackage\Products\Domain\Entity\ProductModelContract;
 
 class ProductPolicy
 {

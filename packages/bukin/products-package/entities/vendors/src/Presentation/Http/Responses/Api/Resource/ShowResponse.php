@@ -3,9 +3,9 @@
 namespace Bukin\ProductsPackage\Vendors\Presentation\Http\Responses\Api\Resource;
 
 use Bukin\AdminPanel\Base\Presentation\Http\Responses\Response as BaseResponse;
-use Illuminate\Http\JsonResponse;
-use Illuminate\Database\Eloquent\Collection;
 use Bukin\ProductsPackage\Vendors\Presentation\Http\Resources\Api\Resource\ShowResource;
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Http\JsonResponse;
 
 class ShowResponse extends BaseResponse
 {

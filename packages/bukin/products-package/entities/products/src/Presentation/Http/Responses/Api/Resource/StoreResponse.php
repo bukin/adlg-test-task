@@ -3,9 +3,9 @@
 namespace Bukin\ProductsPackage\Products\Presentation\Http\Responses\Api\Resource;
 
 use Bukin\AdminPanel\Base\Presentation\Http\Responses\Response as BaseResponse;
-use Illuminate\Http\JsonResponse;
 use Bukin\ProductsPackage\Products\Domain\Entity\ProductModelContract;
 use Bukin\ProductsPackage\Products\Presentation\Http\Resources\Api\Resource\StoreResource;
+use Illuminate\Http\JsonResponse;
 
 class StoreResponse extends BaseResponse
 {

@@ -2,11 +2,13 @@
 
 namespace Bukin\ProductsPackage\Products\Application\Actions\Resource\Update;
 
-use Illuminate\Support\Facades\DB;
 use Bukin\AdminPanel\Base\Application\Exceptions\ResourceDoesNotExistException;
 use Bukin\AdminPanel\Base\Application\Exceptions\ResourceExistsException;
 use Bukin\AdminPanel\Base\Application\Exceptions\SaveResourceToDBException;
 use Bukin\ProductsPackage\Products\Domain\Entity\ProductModelContract;
+use Bukin\ProductsPackage\Vendors\Application\Actions\Checks\CheckWithIdDoesNotExistsAction as CheckVendorWithIdDoesNotExistsAction;
+use Illuminate\Support\Facades\DB;
+use Spatie\DataTransferObject\Exceptions\UnknownProperties;
 use Spatie\QueueableAction\QueueableAction;
 use Throwable;
 
@@ -15,13 +17,15 @@ class UpdateAction
     use QueueableAction;
 
     public function __construct(
-        protected ProductModelContract $model
+        protected ProductModelContract $model,
+        protected CheckVendorWithIdDoesNotExistsAction $checkVendorWithIdDoeNotExistsAction
     ) {}
 
     /**
+     * @throws ResourceExistsException
      * @throws ResourceDoesNotExistException
      * @throws SaveResourceToDBException
-     * @throws ResourceExistsException
+     * @throws UnknownProperties
      */
     public function execute(UpdateItemData $data): ?ProductModelContract
     {
@@ -30,6 +34,10 @@ class UpdateAction
 
         if (! $item) {
             throw ResourceDoesNotExistException::create($data->id);
+        }
+
+        if ($data->vendor_id) {
+            $this->checkVendorWithIdDoeNotExistsAction->execute($data->vendor_id);
         }
 
         $preparedData = $this->getDataForUpdate($item, $data);

@@ -2,9 +2,9 @@
 
 namespace Bukin\ProductsPackage\Vendors\Presentation\JsonApi\V1\Policies;
 
+use Bukin\ProductsPackage\Vendors\Domain\Entity\VendorModelContract;
 use Illuminate\Auth\Access\HandlesAuthorization;
 use InetStudio\ACL\Users\Contracts\Models\UserModelContract;
-use Bukin\ProductsPackage\Vendors\Domain\Entity\VendorModelContract;
 
 class VendorPolicy
 {

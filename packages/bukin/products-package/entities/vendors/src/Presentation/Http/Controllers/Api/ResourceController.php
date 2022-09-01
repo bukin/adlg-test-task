@@ -3,10 +3,10 @@
 namespace Bukin\ProductsPackage\Vendors\Presentation\Http\Controllers\Api;
 
 use Bukin\AdminPanel\Base\Presentation\Http\Controllers\Controller;
-use Bukin\ProductsPackage\Vendors\Application\Queries\FetchItemsByQueryAction;
 use Bukin\ProductsPackage\Vendors\Application\Actions\Resource\Destroy\DestroyAction;
 use Bukin\ProductsPackage\Vendors\Application\Actions\Resource\Store\StoreAction;
 use Bukin\ProductsPackage\Vendors\Application\Actions\Resource\Update\UpdateAction;
+use Bukin\ProductsPackage\Vendors\Application\Queries\FetchItemsByQueryAction;
 use Bukin\ProductsPackage\Vendors\Presentation\Http\Requests\Api\Resource\DestroyRequest;
 use Bukin\ProductsPackage\Vendors\Presentation\Http\Requests\Api\Resource\IndexRequest;
 use Bukin\ProductsPackage\Vendors\Presentation\Http\Requests\Api\Resource\ShowRequest;

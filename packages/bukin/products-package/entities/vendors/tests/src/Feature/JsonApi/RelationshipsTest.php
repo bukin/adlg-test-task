@@ -2,11 +2,11 @@
 
 namespace Bukin\ProductsPackage\Vendors\Tests\Feature\JsonApi;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Bukin\ProductsPackage\Products\Domain\Entity\ProductModel;
 use Bukin\ProductsPackage\Vendors\Domain\Entity\VendorModel;
 use Bukin\ProductsPackage\Vendors\Tests\TestCase;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
 use LaravelJsonApi\Testing\MakesJsonApiRequests;
 
 class RelationshipsTest extends TestCase
@@ -34,6 +34,7 @@ class RelationshipsTest extends TestCase
         ])->all();
 
         $response = $this
+            ->actingAs($this->getUserWithRole('admin'))
             ->jsonApi()
             ->expects('products')
             ->get($url);
@@ -50,6 +51,7 @@ class RelationshipsTest extends TestCase
         $url = route('api.jsonapi.products-package.v1.vendors.products.show', ['vendor' => (string) $vendor->getRouteKey()]);
 
         $response = $this
+            ->actingAs($this->getUserWithRole('admin'))
             ->jsonApi()
             ->expects('products')
             ->get($url);
@@ -65,6 +67,7 @@ class RelationshipsTest extends TestCase
         $url = route('api.jsonapi.products-package.v1.vendors.products.show', ['vendor' => (string) $vendor->getRouteKey()]);
 
         $response = $this
+            ->actingAs($this->getUserWithRole('admin'))
             ->jsonApi()
             ->expects('products')
             ->get($url);

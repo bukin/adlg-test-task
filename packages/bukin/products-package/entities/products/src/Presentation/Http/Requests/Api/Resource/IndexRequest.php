@@ -2,9 +2,9 @@
 
 namespace Bukin\ProductsPackage\Products\Presentation\Http\Requests\Api\Resource;
 
+use Bukin\ProductsPackage\Products\Application\Queries\FetchItemsByQueryData;
 use Illuminate\Foundation\Http\FormRequest;
 use Spatie\DataTransferObject\DataTransferObject;
-use Bukin\ProductsPackage\Products\Application\Queries\FetchItemsByQueryData;
 use Spatie\DataTransferObject\Exceptions\UnknownProperties;
 
 class IndexRequest extends FormRequest

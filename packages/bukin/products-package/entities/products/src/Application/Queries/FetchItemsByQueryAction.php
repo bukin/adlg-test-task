@@ -2,13 +2,13 @@
 
 namespace Bukin\ProductsPackage\Products\Application\Queries;
 
-use Illuminate\Http\Request;
-use Spatie\QueryBuilder\QueryBuilder;
-use Spatie\QueryBuilder\AllowedFilter;
-use Illuminate\Database\Eloquent\Collection;
+use Bukin\ProductsPackage\Products\Domain\Entity\ProductModelContract;
 use Bukin\ProductsPackage\Products\Domain\Filters\SuggestionFilter;
 use Bukin\ProductsPackage\Products\Domain\Filters\VendorFilter;
-use Bukin\ProductsPackage\Products\Domain\Entity\ProductModelContract;
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Http\Request;
+use Spatie\QueryBuilder\AllowedFilter;
+use Spatie\QueryBuilder\QueryBuilder;
 
 class FetchItemsByQueryAction
 {
