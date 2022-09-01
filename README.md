@@ -13,9 +13,14 @@
 
 - docker-compose exec php php artisan migrate
 - docker-compose exec php php artisan inetstudio:acl:roles:seed
-- docker-compose exec php php artisan inetstudio:acl:users:admin (admin / password)
+- Create admin user and get API token: docker-compose exec php php artisan app:make:admin
 - docker-compose exec php php artisan db:seed --class="\Bukin\ProductsPackage\Products\Domain\Entity\ProductSeeder"
 - docker-compose exec php php artisan db:seed --class="\Bukin\ProductsPackage\Vendors\Domain\Entity\VendorSeeder"
+
+<p><strong>Misc</strong></p>
+- Run tests: docker-compose exec php php artisan test packages/bukin/products-package
+- Postman collection: 
+- Show products by console command: docker-compose exec php php artisan bukin:products-package:products:show
 
 <p><strong>Console Aliases</strong></p>
 

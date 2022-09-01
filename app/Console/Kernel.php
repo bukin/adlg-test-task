@@ -4,9 +4,14 @@ namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use App\Console\Commands\CreateAdminUserWithApiTokenCommand;
 
 class Kernel extends ConsoleKernel
 {
+    protected $commands = [
+        CreateAdminUserWithApiTokenCommand::class,
+    ];
+
     /**
      * Define the application's command schedule.
      *
