@@ -5,6 +5,7 @@ namespace Bukin\ProductsPackage\Products\Infrastructure\Providers;
 use Bukin\ProductsPackage\Products\Domain\Entity\ProductModel;
 use Bukin\ProductsPackage\Products\Domain\Entity\ProductModelContract;
 use Bukin\ProductsPackage\Products\Presentation\Console\Commands\SetupCommand;
+use Bukin\ProductsPackage\Products\Presentation\Console\Commands\ShowProductsCommand;
 use Bukin\ProductsPackage\Products\Presentation\JsonApi\V1\Policies\ProductPolicy;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
@@ -37,6 +38,7 @@ class ServiceProvider extends BaseServiceProvider
         $this->commands(
             [
                 SetupCommand::class,
+                ShowProductsCommand::class,
             ]
         );
     }
